@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 /**
  * Class that handles Unauthorized requests.
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ControllerAdvice
 @Slf4j
-public class AuthorizationAdvice {
+public class AuthorizationAdvice extends ResponseEntityExceptionHandler {
 
   @ResponseBody
-  @ExceptionHandler({ExpiredJwtException.class, SignatureException.class})
+  @ExceptionHandler(value = {ExpiredJwtException.class, SignatureException.class})
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   ResponseEntity<Object> unauthorizedHandler(Exception ex) {
     log.error("hidden error => " + ex.getMessage());

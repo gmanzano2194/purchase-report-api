@@ -6,6 +6,7 @@ import static com.insidetrackdata.purchasereport.util.Utils.getKey;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import java.util.Date;
+import java.util.HashMap;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +27,7 @@ public class JwtUtil {
    * @since   2022-09-25
    */
   public String generateToken(UserDetails userDetails) {
-    return Jwts.builder()
+    return Jwts.builder().setClaims(new HashMap<>())
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date())
         .setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION_TIME))
