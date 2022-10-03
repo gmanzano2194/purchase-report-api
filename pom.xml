@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.insidetrackdata</groupId>
 	<artifactId>purchase-report-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>purchase-report-api</name>
 	<description>Purchase Reports API</description>
 	<properties>
