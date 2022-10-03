@@ -1,1 +1,1 @@
-web: java -jar -Dspring.profiles.active=pro target/purchase-report-api-1.0.jar
+web: java -jar target/purchase-report-api-1.0.jar
